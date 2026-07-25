@@ -1,3 +1,5 @@
+/* ===== RESET ===== */
+
 *{
     margin:0;
     padding:0;
@@ -7,100 +9,251 @@
 body{
     background:#070707;
     color:#d8d8d8;
-    font-family:Courier New, monospace;
+    font-family:"Courier New", monospace;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ===== BACKGROUND ===== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+
+    background:
+        linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94)),
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.02) 0px,
+            rgba(255,255,255,.02) 2px,
+            transparent 2px,
+            transparent 4px
+        );
+
+    animation:flicker 6s infinite;
+}
+
+/* ===== LANDING PAGE ===== */
+
+.container{
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
-}
-
-.background{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:
-    linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.92)),
-    repeating-linear-gradient(
-        0deg,
-        rgba(255,255,255,.02) 0px,
-        rgba(255,255,255,.02) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    animation:flicker 6s infinite;
-}
-
-.container{
-    width:100%;
-    display:flex;
-    justify-content:center;
     padding:20px;
 }
 
 .terminal{
-    position:relative;
-    z-index:2;
-    max-width:700px;
     width:100%;
-    text-align:center;
-    border:1px solid #3f3f3f;
+    max-width:700px;
+
     background:#111;
-    padding:50px 30px;
-    box-shadow:0 0 25px rgba(255,255,255,.08);
+
+    border:1px solid #444;
+
+    padding:40px 25px;
+
+    text-align:center;
+
+    box-shadow:0 0 20px rgba(255,255,255,.08);
 }
 
 .classified{
+
     display:inline-block;
-    border:1px solid #888;
-    color:#ff4d4d;
+
+    color:#ff5555;
+
+    border:1px solid #777;
+
     padding:8px 14px;
-    margin-bottom:35px;
+
+    margin-bottom:30px;
+
     letter-spacing:2px;
+
     font-size:.8rem;
+
 }
 
 h1{
-    font-size:3rem;
-    color:white;
-    margin-bottom:10px;
-    letter-spacing:3px;
-}
 
-h2{
-    color:#b5b5b5;
-    font-weight:normal;
-    margin-bottom:30px;
+    color:white;
+
+    margin-bottom:10px;
+
+    letter-spacing:2px;
+
+    line-height:1.2;
+
 }
 
 .subtitle{
+
     color:#8dd18d;
-    font-size:1.1rem;
-    margin-bottom:40px;
+
+    margin:20px 0;
+
 }
 
 .warning{
-    border:1px solid #555;
+
+    margin:30px 0;
+
+    border:1px solid #444;
+
     padding:20px;
-    margin-bottom:40px;
+
     line-height:1.8;
-    color:#cccccc;
+
 }
 
 .enter-button{
-    display:inline-block;
-    padding:16px 36px;
-    border:1px solid #8dd18d;
-    color:#8dd18d;
+
+    display:block;
+
     text-decoration:none;
+
+    color:#8dd18d;
+
+    border:1px solid #8dd18d;
+
+    padding:16px;
+
     transition:.3s;
-    letter-spacing:2px;
+
 }
 
 .enter-button:hover{
+
     background:#8dd18d;
+
     color:black;
+
 }
+
+/* ===== DASHBOARD ===== */
+
+.dashboard{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:30px 20px 60px;
+
+}
+
+header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.menu-button{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#111;
+
+    border:1px solid #444;
+
+    padding:18px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.menu-button:hover{
+
+    border-color:#8dd18d;
+
+    color:#8dd18d;
+
+    transform:translateY(-2px);
+
+}
+
+.status-box{
+
+    margin-top:40px;
+
+    border:1px solid #444;
+
+    background:#111;
+
+    padding:20px;
+
+}
+
+.status-box h2{
+
+    color:#8dd18d;
+
+    margin-bottom:20px;
+
+}
+
+.status-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:8px 0;
+
+    border-bottom:1px solid #2d2d2d;
+
+}
+
+.status-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.online{
+
+    color:#8dd18d;
+
+    font-weight:bold;
+
+}
+
+/* ===== DESKTOP ===== */
+
+@media(min-width:800px){
+
+.menu{
+
+grid-template-columns:1fr 1fr;
+
+display:grid;
+
+}
+
+}
+
+/* ===== ANIMATION ===== */
 
 @keyframes flicker{
 
@@ -109,21 +262,5 @@ h2{
 50%{opacity:1;}
 
 100%{opacity:.95;}
-
-}
-
-@media(max-width:700px){
-
-h1{
-font-size:2rem;
-}
-
-.terminal{
-padding:35px 20px;
-}
-
-.enter-button{
-width:100%;
-}
 
 }
