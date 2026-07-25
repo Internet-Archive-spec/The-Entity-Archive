@@ -264,3 +264,30 @@ display:grid;
 100%{opacity:.95;}
 
 }
+/* ===========================
+   BEO Global Navigation
+=========================== */
+
+.beo-navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0 30px;
+    padding: 12px;
+    border: 1px solid #2f4f4f;
+    background: rgba(20, 20, 20, 0.85);
+}
+
+.beo-navigation a {
+    color: #8fd3ff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.beo-navigation a:hover {
+    background: rgba(143, 211, 255, 0.15);
+}
